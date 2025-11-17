@@ -392,6 +392,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &671267216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8150954453372313716, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
+  m_PrefabInstance: {fileID: 1589177950193462152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &819687513
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7899a6ee5221c47efba1bb80a1e0082a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastGroundObject: {fileID: 671267216}
+  groundPrefab: {fileID: 671267216}
 --- !u!4 &1501528212
 Transform:
   m_ObjectHideFlags: 0
