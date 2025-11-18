@@ -1,16 +1,17 @@
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class GroundCollisionController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GroundDataTransmitter groundDataTransmitter;
+    
+    private void OnCollisionExit(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            groundDataTransmitter.SetGroundRigidbodyValues();
+        }
     }
 }

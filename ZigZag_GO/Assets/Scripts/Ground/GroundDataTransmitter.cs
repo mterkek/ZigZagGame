@@ -1,16 +1,20 @@
+using System;
 using UnityEngine;
-
+using System.Collections;
+using Unity.VisualScripting;
+using System.Runtime.CompilerServices;
 public class GroundDataTransmitter : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GroundFallController groundFallController;
+
+
+    public class setGroundRigidbodyFall
     {
-        
+        [SerializeField] private IEnumerator groundFallController;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetGroundRigidbodyValues()
     {
-        
+       StartCoroutine(groundFallController.SetRigidbodyValues());
     }
 }

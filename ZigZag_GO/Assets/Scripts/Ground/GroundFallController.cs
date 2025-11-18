@@ -1,16 +1,22 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class Ground : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Rigidbody rb;
+
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator SetRigidbodyValues()
     {
-        
+        yield return new WaitForSeconds(0.5f);
+        rb.isKinematic = false;
+        rb.useGravity = true;
+
     }
 }
