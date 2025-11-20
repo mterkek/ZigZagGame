@@ -1,18 +1,16 @@
-using System.Collections;
 using UnityEngine;
 
 public class GroundCollisionController : MonoBehaviour
 {
-    [SerializeField] private GroundDataTransmitter groundDataTransmitter;
-
-    // RigidBody'li bir obje bu collider'dan ayrıldığında çağrılır
-    private void OnCollisionExit(Collision collision)
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        // Çarpışmadan çıkan obje "Ball" tag'ine sahip mi?
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            // Ground'un rigidbody ayarlarını değiştir (düşmesini başlat)
-            groundDataTransmitter.SetGroundRigidbodyValues();
-        }
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

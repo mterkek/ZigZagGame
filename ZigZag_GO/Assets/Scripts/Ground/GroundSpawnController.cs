@@ -1,37 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundSpawnController : MonoBehaviour
 {
+    public GameObject lastGroundObject;
     [SerializeField] private GameObject groundPrefab;
-    [SerializeField] private GameObject lastGroundObject;
+    private GameObject newGroundObject;
 
     private int groundDirection;
 
-    public void SpawnGround()
+    void Start()
     {
-        CreateNewGround();
+        GenerateRandomNewGround();
+    } 
 
-        for (int i = 0; i < 90; i++)
+    public void GenerateRandomNewGround()
+    {
+        for (int i = 0; i < 50; i++)
         {
             CreateNewGround();
         }
     }
 
     private void CreateNewGround()
+    
     {
         groundDirection = Random.Range(0, 2);
-        Vector3 newPosition;
+        
 
         if (groundDirection == 0)
         {
-            newPosition = lastGroundObject.transform.position + new Vector3(-1f, 0, 0);
+            newGroundObject = Instantiate(groundPrefab, new Vector3(lastGroundObject.transform.position.x - 1f, lastGroundObject.transform.position.y, lastGroundObject.transform.position.z), Quaternion.identity);
         }
         else
         {
-            newPosition = lastGroundObject.transform.position + new Vector3(0, 0, 1f);
+            newGroundObject = Instantiate(groundPrefab, new Vector3(lastGroundObject.transform.position.x , lastGroundObject.transform.position.y, lastGroundObject.transform.position.z  + 1), Quaternion.identity);
         }
 
-        GameObject newGroundObject = Instantiate(groundPrefab, newPosition, Quaternion.identity);
         lastGroundObject = newGroundObject;
     }
 }
