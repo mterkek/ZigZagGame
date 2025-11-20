@@ -1,20 +1,14 @@
-using System;
-using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
-using System.Runtime.CompilerServices;
+using UnityEngine;
+
 public class GroundDataTransmitter : MonoBehaviour
 {
     [SerializeField] private GroundFallController groundFallController;
-
-
-    public class setGroundRigidbodyFall
-    {
-        [SerializeField] private IEnumerator groundFallController;
-    }
-
+    [SerializeField] private GroundCollisionController groundCollisionController;
+    // GroundCollisionController burayı çağırır
     public void SetGroundRigidbodyValues()
     {
-       StartCoroutine(groundFallController.SetRigidbodyValues());
+        StartCoroutine(groundFallController.SetRigidbodyValues());
+        StartCoroutine(groundCollisionController.WaitAndDisableCollider());
     }
 }
