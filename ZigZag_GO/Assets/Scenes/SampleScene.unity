@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_Fog: 1
+  m_FogColor: {r: 0.4117647, g: 0.6039216, b: 0.8039216, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogStart: 15
+  m_LinearFogEnd: 20
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -397,6 +397,44 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8150954453372313716, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
   m_PrefabInstance: {fileID: 1589177950193462152}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &671267218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671267216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0c7f6e818684fb39f9e782fc8a5975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &671267219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671267216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88262cda208474e60b65eaf5987a690f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundFallController: {fileID: 671267218}
+--- !u!114 &671267220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671267216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcca4283e73074be287289a8a667622e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundDataTransmitter: {fileID: 671267219}
 --- !u!1 &819687513
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,8 +452,8 @@ GameObject:
   - component: {fileID: 819687520}
   - component: {fileID: 819687519}
   m_Layer: 0
-  m_Name: player
-  m_TagString: Untagged
+  m_Name: Ball
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -740,6 +778,10 @@ GameObject:
   - component: {fileID: 1911250899}
   - component: {fileID: 1911250898}
   - component: {fileID: 1911250897}
+  - component: {fileID: 1911250904}
+  - component: {fileID: 1911250903}
+  - component: {fileID: 1911250902}
+  - component: {fileID: 1911250901}
   m_Layer: 0
   m_Name: Main Ground
   m_TagString: Untagged
@@ -836,6 +878,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1911250901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911250896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcca4283e73074be287289a8a667622e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundDataTransmitter: {fileID: 1911250903}
+--- !u!114 &1911250902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911250896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0c7f6e818684fb39f9e782fc8a5975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1911250903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911250896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88262cda208474e60b65eaf5987a690f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundFallController: {fileID: 1911250902}
+--- !u!54 &1911250904
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911250896}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1589177950193462152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -884,6 +991,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6867849529755451166, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6867849529755451166, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8150954453372313716, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
       propertyPath: m_Name
       value: Ground
@@ -891,7 +1006,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8150954453372313716, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 671267219}
+    - targetCorrespondingSourceObject: {fileID: 8150954453372313716, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 671267218}
+    - targetCorrespondingSourceObject: {fileID: 8150954453372313716, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 671267220}
   m_SourcePrefab: {fileID: 100100000, guid: 72d8bf2bee304444694cb4aca2c4f36f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

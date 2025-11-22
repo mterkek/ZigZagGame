@@ -15,9 +15,14 @@ public class GroundSpawnController : MonoBehaviour
         GenerateRandomNewGround();
     } 
 
+    public void GenerateRandomGround()
+    {
+        CreateNewGround();
+    }
+
     public void GenerateRandomNewGround()
     {
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 75; i++)
         {
             CreateNewGround();
         }
@@ -32,12 +37,14 @@ public class GroundSpawnController : MonoBehaviour
         if (groundDirection == 0)
         {
             newGroundObject = Instantiate(groundPrefab, new Vector3(lastGroundObject.transform.position.x - 1f, lastGroundObject.transform.position.y, lastGroundObject.transform.position.z), Quaternion.identity);
+            lastGroundObject = newGroundObject;
         }
         else
         {
-            newGroundObject = Instantiate(groundPrefab, new Vector3(lastGroundObject.transform.position.x , lastGroundObject.transform.position.y, lastGroundObject.transform.position.z  + 1), Quaternion.identity);
+            newGroundObject = Instantiate(groundPrefab, new Vector3(lastGroundObject.transform.position.x , lastGroundObject.transform.position.y, lastGroundObject.transform.position.z + 1), Quaternion.identity);
+            lastGroundObject = newGroundObject;
         }
 
-        lastGroundObject = newGroundObject;
+        
     }
 }

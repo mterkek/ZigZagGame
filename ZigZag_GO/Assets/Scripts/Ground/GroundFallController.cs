@@ -1,22 +1,21 @@
-using Unity.VisualScripting;
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-public class Ground : MonoBehaviour
+public class GroundFallController : MonoBehaviour
 {
     private Rigidbody rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-
     }
 
     public IEnumerator SetRigidbodyValues()
     {
-        yield return new WaitForSeconds(0.5f);
+        // Biraz bekle, sonra ground'u düşür
+        yield return new WaitForSeconds(0.7f);
+
         rb.isKinematic = false;
         rb.useGravity = true;
-
     }
 }
