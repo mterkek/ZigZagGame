@@ -9,7 +9,7 @@ public class GroundCollisionController : MonoBehaviour
 
     public void CollisionExit(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Ball"))
         {
             groundDataTransmitter.SetGroundRigidbodyFall();
         }

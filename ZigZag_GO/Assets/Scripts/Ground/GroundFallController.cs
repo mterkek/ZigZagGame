@@ -13,7 +13,7 @@ public class GroundFallController : MonoBehaviour
     public IEnumerator SetRigidbodyValues()
     {
         // Biraz bekle, sonra ground'u düşür
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.01f);
 
         rb.isKinematic = false;
         rb.useGravity = true;
